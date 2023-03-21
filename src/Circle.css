@@ -1,0 +1,70 @@
+.mainframe {
+    background-color: grey;
+    position: absolute;
+    left: 250px;
+}
+
+.btn {
+    position: absolute;
+    top: 0px;
+    left: 250px;
+    /* margin-bottom: 20px; */
+}
+
+.insert {
+    top: 42px;
+}
+
+.clear {
+    top: 21px;
+}
+
+.delete {
+    top: 63px;
+}
+
+
+.inorder {
+    top: 85px
+}
+
+.preorder {
+    top: 110px;
+}
+
+.postorder {
+    top: 130px;
+}
+
+.colors {
+    top:170px;
+}
+
+.traversal {
+    position: absolute;
+    /* top: 500px; */
+    left: 400px;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+}
+
+
+.search {
+    top: 150px
+}
+
+.circle {
+    fill: red;
+    stroke: black;
+    stroke-width: 2.5;
+}
+  
+.circle.highlighted {
+    fill: yellow;
+}
+
+circle.temp {
+    fill: red;
+}
+  
