@@ -6,7 +6,7 @@ import Path from './Path';
 import "./Circle.css"
 
 
-//TODO - Animate Traversals
+//TODO- Live the site using github pages.
 function App() {
   const [root, setRoot] = useState(null);
   const [stack, setStack] = useState([]);
@@ -123,9 +123,9 @@ function App() {
     var circular_nodes = document.getElementsByClassName('circle');
     var text_nodes = document.getElementsByClassName('textClass');
     // console.log(circular_nodes);
-    console.log(text_nodes);
+    // console.log(text_nodes);
     const search_path = tempPath;
-    console.log(search_path);
+    // console.log(search_path);
 
     for(let i=0 ; i < search_path.length-1; i++) {
       setTimeout(() => {
@@ -187,15 +187,41 @@ function App() {
     
   };
 
+  function animateTraversal(array) {
+      var circular_nodes = document.getElementsByClassName('circle');
+      var text_nodes = document.getElementsByClassName('textClass');
+      const traversal_path = array;
+      // console.log(traversal_path);
+      for(let i=0; i < traversal_path.length; i++ ) {
+        setTimeout(() => {
+          let value = traversal_path[i].n;
+          for(let j=0; j < text_nodes.length;j++) {
+            if(value === parseInt(text_nodes[j].textContent)) {
+              circular_nodes[j].style.fill="orange";
+              break;
+            }
+          }
+        }, i * 500);
+      }
+
+      setTimeout(() => {
+          for(let i=0 ; i < circular_nodes.length; i++) {
+              circular_nodes[i].style.fill="red";
+            }
+        }, (traversal_path.length) * 700); 
+
+    }
 
   const handleInorder = () => {
     if(INORDER.length > 0) { 
-      console.log(INORDER);
+      // console.log(INORDER);
+      animateTraversal(INORDER);
       setTraversal(tempstring);
       return 
     }
     inorder(root);
-    console.log(INORDER);
+    // console.log(INORDER);
+    animateTraversal(INORDER);
     tempstring = "";
     for(let i=0;i<INORDER.length;i++) {
       tempstring = tempstring + INORDER[i].n + " ";
@@ -206,10 +232,12 @@ function App() {
 
   const handlePreorder = () => {
     if(PREORDER.length > 0) { console.log(PREORDER);
+      animateTraversal(PREORDER);
       setTraversal(tempstring);
        return }
     preorder(root);
-    console.log(PREORDER);
+    // console.log(PREORDER);
+    animateTraversal(PREORDER);
     tempstring = "";
     for(let i=0;i<PREORDER.length;i++) {
       tempstring = tempstring + PREORDER[i].n + " ";
@@ -220,10 +248,12 @@ function App() {
 
   const handlePostorder = () => {
     if(POSTORDER.length > 0) { console.log(POSTORDER);
+    animateTraversal(POSTORDER);
       setTraversal(tempstring);
        return }
     postorder(root);
-    console.log(POSTORDER);
+    // console.log(POSTORDER);
+    animateTraversal(POSTORDER);
     tempstring = "";
     for(let i=0;i<POSTORDER.length;i++) {
       tempstring = tempstring + POSTORDER[i].n + " ";
@@ -275,7 +305,7 @@ function postorder(root) { //POSTORDER
 
   return (
     <div className="App">
-      <svg width="1000" height="600" className='mainframe'>
+      <svg width="1000" height="745" className='mainframe'>
         {
           pathline.map((item, idx)=>{
             return (

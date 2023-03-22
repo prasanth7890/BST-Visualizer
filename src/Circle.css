@@ -59,12 +59,8 @@
     stroke: black;
     stroke-width: 2.5;
 }
-  
-.circle.highlighted {
-    fill: yellow;
+
+.highlighted {
+    fill: yellow !important;
 }
 
-circle.temp {
-    fill: red;
-}
-  
